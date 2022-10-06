@@ -1,0 +1,90 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Registro de medicamentos</h4>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="cliente_medicamentos_form" (ngSubmit)="onSubmit()">
+              <div class="row">
+
+                <div class="col-md-3">
+                  <div>
+                    Selecciona el medicamento
+                  </div>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Selecciona el medicamento
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <ng-container *ngFor="let medicamento of medicamentos; let i = index;">
+                        <a class="dropdown-item" (click)="addMedicamentoToDb(medicamento.id_medicamento)">{{medicamento.nombre_medicamento}}</a>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Comentarios</label>
+                  <mat-form-field class="example-full-width">
+                    <textarea matInput
+                      placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
+                  </mat-form-field>
+
+                </div>
+              </div>
+              <div class="card-header card-header-danger mt-3">
+                <h4 class="card-title">Medicamentos seleccionados</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        No. medicamento
+                      </th>
+                      <th>
+                        Nombre Medicamento
+                      </th>
+                      <th>
+                        Contenido
+                      </th>
+                      <th>
+                        Accion
+                      </th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let medicamento_seleccionado of medicamentos_seleccionados; let i = index;">
+                        <td>
+                          {{medicamento_seleccionado.id_medicamento}}
+                        </td>
+                        <td>
+                          {{medicamento_seleccionado.nombre_medicamento}}
+                        </td>
+                        <td>
+                          {{medicamento_seleccionado.contenido_medicamento}}
+                        </td>
+                        <td class="flex-2-columns">
+                          <button type="button" class="btn btn-danger" (click)="deleteMedicamentoFromTable(medicamento_seleccionado.id_medicamento)">Eliminar</button>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+                <button mat-raised-button type="submit" class="btn btn-success pull-right">Agregar registros</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <div class="card-body p-md-5 mx-md-4">
+
+                                <div style="display: flex; justify-content: flex-start;">
+                                    <a class="btn btn-dark" role="button" [routerLink]="['/notifications']">Volver</a>
+                                </div>  
+                                <div class="text-center">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                                        style="width: 185px;" alt="logo">
+                                    <h4 class="mt-1 mb-5 pb-1">Recupera tu contraseña</h4>
+                                </div>
+
+                                <form>
+                                    <p>Ingresa tu cuenta</p>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="form2Example11" class="form-control"
+                                            placeholder="ingresa tu usuario o email" name="nombre_usuario" [(ngModel)]="usuario_o_correo"/>
+                                        <label class="form-label" for="form2Example11">Correo o nombre de
+                                            usuario</label>
+                                    </div>
+                                    <div class="text-center pt-1 mb-5 pb-1"
+                                        style="display: flex; flex-direction: column;">
+                                        <input type="submit" class="btn btn-primary" value="Recuperar" (click)="recuperarClave()">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

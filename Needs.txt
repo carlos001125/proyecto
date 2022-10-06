@@ -1,0 +1,13 @@
+Web app: Lista y organiza(Horarios fecha, hora, precio) los medicamentos
+				 de una persona 
+
+
+- Medicamento
+
+- Cliente
+
+- 
+
+
+
+
