@@ -11,11 +11,10 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/user-profile', title: 'Registrar medicamentos',  icon:'person', class: '' },
     { path: '/table-list', title: 'Lista de medicamentos',  icon:'content_paste', class: '' },
-    { path: '/typography', title: 'Registro',  icon:'library_books', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    { path: '/maps', title: 'Recuperacion de contraseña',  icon:'location_on', class: '' },
-    { path: '/notifications', title: 'Acceso',  icon:'notifications', class: '' },
-    { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
+    // { path: '/typography', title: 'Registro',  icon:'library_books', class: '' },
+    // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' }, // No se uso
+    // { path: '/maps', title: 'Recuperacion de contraseña',  icon:'location_on', class: '' },
+    // { path: '/notifications', title: 'Acceso',  icon:'notifications', class: '' },
 ];
 
 @Component({

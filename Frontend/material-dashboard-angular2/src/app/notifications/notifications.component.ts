@@ -76,6 +76,10 @@ export class NotificationsComponent implements OnInit {
     this.router.navigate(['/maps']);
   }
 
+  toGoRegister(): void{
+    this.router.navigate(['/typography']);
+  }
+
 
   onSubmit(): void{
     const nombre: string = this.usuarioForm.controls['nombre_usuario'].value;
