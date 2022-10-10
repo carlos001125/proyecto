@@ -35,33 +35,40 @@ insert into medicamento(contenido_medicamento, nombre_medicamento)
 values('200g', 'Med 5');
 insert into medicamento(contenido_medicamento, nombre_medicamento)
 values('200g', 'Med 6');
+insert into medicamento(contenido_medicamento, nombre_medicamento)
+values('100g', 'Aspirina');
+insert into medicamento(contenido_medicamento, nombre_medicamento)
+values('20g', 'Aspirina 2');
 
 select * from medicamento;
 select * from cliente;
 
 select * from cliente_medicamento;
+select * from cliente_medicamento inner join cliente on cliente.id_cliente = cliente_medicamento.id_cliente where nombre_cliente = 'Berenice';
 
 insert into cliente_medicamento(id_cliente, id_medicamento) values(2, 1);
 
 describe cliente_medicamento;
 describe medicamento;
+select * from cliente_medicamento;
 
-select c.nombre_cliente, m.nombre_medicamento, m.contenido_medicamento
-	from Cliente c inner join cliente_medicamento mc on c.id_cliente = mc.id_cliente 
-				   inner join medicamento m on m.id_medicamento = mc.id_medicamento where c.id_cliente = 2;
+select * from usuario;
+insert into usuario(clave_usuario, correo_usuario, nombre_usuario, id_cliente) values("123", "fubdsi", "fbkds", 3);
+select u.* from Usuario u where (u.nombre_usuario = "fbkds" and clave_usuario = "123") or (u.correo_usuario = "fubdsi" and clave_usuario = "4343");
+
+select * from usuario;
+
+SET SQL_SAFE_UPDATES = 0;
+select u.* from Usuario u where (u.nombre_usuario = '' or u.correo_usuario = 'yufvd');
+
+select cm.id_medicamento, cm.completado_medicamento, cm.hora_medicacion from cliente_medicamento cm 
+	inner join medicamento m on m.id_medicamento = cm.id_medicamento;
 
 
-select
-        medicament0_.id_medicamento as id_medic1_2_,
-        medicament0_.contenido_medicamento as contenid2_2_,
-        medicament0_.nombre_medicamento as nombre_m3_2_ 
-    from
-        medicamento medicament0_ 
-    inner join
-        cliente_medicamento clientes1_ 
-            on medicament0_.id_medicamento=clientes1_.id_medicamento 
-    inner join
-        cliente cliente2_ 
-            on clientes1_.id_cliente=cliente2_.id_cliente 
-    where
-        id_cliente=2
+
+
+
+
+
+
+

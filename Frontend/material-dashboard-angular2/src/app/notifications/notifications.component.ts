@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { Cliente } from 'app/programming/dto/Cliente.dto';
-import { AuxiliarService } from 'app/programming/services/aux.service';
+import { AuxiliarService } from 'app/programming/services/auxiliar.service';
 import { UsuarioService } from 'app/programming/services/usuario.service';
 import Swal from 'sweetalert2'
 

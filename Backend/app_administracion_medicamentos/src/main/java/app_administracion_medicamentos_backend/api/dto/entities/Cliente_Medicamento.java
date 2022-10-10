@@ -50,14 +50,6 @@ public class Cliente_Medicamento implements Serializable{/**
 	@Column(name = "fecha_medicacion")
 	private String fecha_medicacion;
 	
-	@PrePersist
-	public void prePersist() {
-		DateTimeFormatter dtf_fecha = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
-		DateTimeFormatter dtf_hora = DateTimeFormatter.ofPattern("HH:mm:ss");
-		LocalDateTime now = LocalDateTime.now();  
-		setHora_medicacion(dtf_hora.format(now));
-		setFecha_medicacion(dtf_fecha.format(now));
-	}
 	
 }
 

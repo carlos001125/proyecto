@@ -47,8 +47,8 @@ export class UserProfileComponent implements OnInit {
       id_cliente: [this.cliente_iniciado.id_cliente, [Validators.required]],
       id_medicamento: ['', Validators.required],
       completado_medicamento: [false, [Validators.required]],
-      hora_medicacion: [funciones.getCurrentTime(), [Validators.required]],
-      fecha_medicacion: [funciones.getCurrentDate(), [Validators.required]]
+      hora_medicacion: ['', [Validators.required]],
+      fecha_medicacion: ['', [Validators.required]]
     });
 
     this.listAllMedicamentos();
