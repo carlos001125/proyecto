@@ -33,6 +33,14 @@ export class TableListComponent implements OnInit {
     this.router.navigate(['/user-profile']);
   }
 
+  sonarPrueba(): void{
+    const audio = new Audio();
+    audio.src = "../assets/sonidos/tonoPrueba1.wav";
+    audio.crossOrigin = "anonymous"
+    audio.load();
+    audio.play();
+  }
+
   listAllMedicamentosByClienteId(id_cliente: number): void{
     this.clienteService.getById(id_cliente).
       subscribe( resp => {

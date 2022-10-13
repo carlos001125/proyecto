@@ -1,5 +1,10 @@
 package app_administracion_medicamentos_backend.api.services;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +15,8 @@ import app_administracion_medicamentos_backend.api.dto.entities.Cliente_Medicame
 import app_administracion_medicamentos_backend.api.interfaces.services.ICliente_MedicamentoService;
 
 @Service
-public class Cliente_MedicamentoService implements ICliente_MedicamentoService<Cliente_Medicamento>{
-	
+public class Cliente_MedicamentoService implements ICliente_MedicamentoService<Cliente_Medicamento> {
+
 	@Autowired
 	Cliente_MedicamentoDao cliente_MedicamentoDao;
 
@@ -34,11 +39,18 @@ public class Cliente_MedicamentoService implements ICliente_MedicamentoService<C
 	@Override
 	public Cliente_Medicamento deleteById(Long id) {
 		Cliente_Medicamento cliente_Medicamento = getById(id);
-		if(cliente_Medicamento != null) {
+		if (cliente_Medicamento != null) {
 			this.cliente_MedicamentoDao.deleteById(id);
 			return cliente_Medicamento;
 		}
 		return null;
 	}
+	
+	  public List<Cliente_Medicamento> getAllByClientId(Long id){
+	  List<Cliente_Medicamento> resultadosPorId =
+	  this.cliente_MedicamentoDao.getAllByClientId(id); return resultadosPorId; }
+	 
+
+	
 
 }

@@ -61,14 +61,15 @@ select * from usuario;
 SET SQL_SAFE_UPDATES = 0;
 select u.* from Usuario u where (u.nombre_usuario = '' or u.correo_usuario = 'yufvd');
 
-select cm.id_medicamento, cm.completado_medicamento, cm.hora_medicacion from cliente_medicamento cm 
-	inner join medicamento m on m.id_medicamento = cm.id_medicamento;
+select cm.* from cliente_medicamento cm where cm.hora_medicacion = "10:31";
+
+select * from cliente_medicamento;
 
 
+select cm.id_cliente_medicamento, cm.completado_medicamento, cm.fecha_medicacion, cm.hora_medicacion, m.nombre_medicamento, cm.id_cliente FROM cliente_medicamento cm INNER JOIN medicamento m ON m.id_medicamento = cm.id_medicamento where cm.id_cliente = 1;
 
 
-
-
+select cm.id_cliente_medicamento as id_cliente_medicamento, cm.completado_medicamento as completado_medicamento, cm.fecha_medicacion as fecha_medicacion, cm.hora_medicacion as hora_medicacion, m.nombre_medicamento as nombre_medicamento, cm.id_cliente as id_cliente FROM cliente_medicamento cm INNER JOIN medicamento m ON m.id_medicamento = cm.id_medicamento where cm.id_cliente = 2;
 
 
 

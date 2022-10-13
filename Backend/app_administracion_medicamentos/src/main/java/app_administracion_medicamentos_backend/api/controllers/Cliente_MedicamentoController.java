@@ -1,5 +1,6 @@
 package app_administracion_medicamentos_backend.api.controllers;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,43 +24,49 @@ import app_administracion_medicamentos_backend.api.services.Cliente_MedicamentoS
 @RestController
 @RequestMapping(path = "/api/proyecto/clientes_medicamentos")
 @CrossOrigin(value = "http://localhost:4200/")
-public class Cliente_MedicamentoController implements ICliente_MedicamentoController<Cliente_Medicamento>{
-	
-	@Autowired 
+public class Cliente_MedicamentoController implements ICliente_MedicamentoController<Cliente_Medicamento> {
+
+	@Autowired
 	Cliente_MedicamentoService cliente_MedicamentoService;
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Response<List<Cliente_Medicamento>>> getAll() {
-		return ResponseEntity
-				.ok(new Response<>(String.valueOf(HttpStatus.OK), cliente_MedicamentoService.getAll(), "Datos obtenidos"));
+		return ResponseEntity.ok(
+				new Response<>(String.valueOf(HttpStatus.OK), cliente_MedicamentoService.getAll(), "Datos obtenidos"));
 	}
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Response<Cliente_Medicamento>> getById(@PathVariable Long id) {
-		return ResponseEntity
-				.ok(new Response<>(String.valueOf(HttpStatus.OK), cliente_MedicamentoService.getById(id), "Datos obtenidos"));
+		return ResponseEntity.ok(new Response<>(String.valueOf(HttpStatus.OK), cliente_MedicamentoService.getById(id),
+				"Datos obtenidos"));
 	}
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/createOrUpdate", method = {RequestMethod.POST}, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/createOrUpdate", method = {
+			RequestMethod.POST }, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Response<Cliente_Medicamento>> createOrUpdate(@RequestBody Cliente_Medicamento entity) {
-		return ResponseEntity
-				.ok(new Response<>(String.valueOf(HttpStatus.OK), cliente_MedicamentoService.createOrUpdate(entity), "Datos registrados"));
+		return ResponseEntity.ok(new Response<>(String.valueOf(HttpStatus.OK),
+				cliente_MedicamentoService.createOrUpdate(entity), "Datos registrados"));
 	}
 
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/deleteById/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Response<Cliente_Medicamento>> deleteById(@PathVariable Long id) {
-		return ResponseEntity
-				.ok(new Response<>(String.valueOf(HttpStatus.OK), cliente_MedicamentoService.deleteById(id), "Datos eliminados"));
-	} 
-	
-	
+		return ResponseEntity.ok(new Response<>(String.valueOf(HttpStatus.OK),
+				cliente_MedicamentoService.deleteById(id), "Datos eliminados"));
+	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/getAllByClientId/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response<List<Cliente_Medicamento>>> getAllByClientId(@PathVariable Long id) {
+		return ResponseEntity.ok(new Response<>(String.valueOf(HttpStatus.OK),
+				this.cliente_MedicamentoService.getAllByClientId(id), "Datos obtenidos correctamente"));
+	}
 
 }

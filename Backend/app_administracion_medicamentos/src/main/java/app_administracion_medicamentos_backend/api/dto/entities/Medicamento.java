@@ -40,6 +40,7 @@ public class Medicamento implements Serializable{
 	@Column(name = "contenido_medicamento", unique = false, nullable = false)
 	private String contenido_medicamento;
 	
+	
 	@ManyToMany(mappedBy = "medicamentos")
 	@JsonIgnore
 	private List<Cliente> clientes = new ArrayList<>();
