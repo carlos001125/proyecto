@@ -71,5 +71,25 @@ select cm.id_cliente_medicamento, cm.completado_medicamento, cm.fecha_medicacion
 
 select cm.id_cliente_medicamento as id_cliente_medicamento, cm.completado_medicamento as completado_medicamento, cm.fecha_medicacion as fecha_medicacion, cm.hora_medicacion as hora_medicacion, m.nombre_medicamento as nombre_medicamento, cm.id_cliente as id_cliente FROM cliente_medicamento cm INNER JOIN medicamento m ON m.id_medicamento = cm.id_medicamento where cm.id_cliente = 2;
 
+select
+        cm.id_cliente_medicamento,
+        cm.completado_medicamento,
+        cm.fecha_medicacion,
+        cm.hora_medicacion,
+        m.nombre_medicamento,
+        cm.id_cliente,
+        cm.id_medicamento
+    FROM
+        cliente_medicamento cm 
+    INNER JOIN
+        medicamento m 
+            ON m.id_medicamento = cm.id_medicamento 
+    where
+        cm.id_cliente = 1;
+        
+        
+select * from cliente;
 
+select * from cliente c inner join cliente_medicamento cm on c.id_cliente = cm.id_cliente
+	where cm.id_cliente = 3; 
 

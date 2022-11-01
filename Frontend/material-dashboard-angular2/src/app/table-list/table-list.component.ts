@@ -51,9 +51,4 @@ export class TableListComponent implements OnInit {
 
       })
   }
-
-
-
-
-
 }
