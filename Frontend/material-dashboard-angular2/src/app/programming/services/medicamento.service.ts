@@ -4,6 +4,7 @@ import { Medicamento } from '../dto/Medicamento.dto';
 import { IMedicamentoService } from '../interfaces/IMedicamentoService';
 import { Response } from '../models/Response.dto';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,11 @@ export class MedicamentoService implements IMedicamentoService<Medicamento>{
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllUrl: string = "http://localhost:8084/api/proyecto/medicamentos/getAll";
-  getByIdUrl: string = `http://localhost:8084/api/proyecto/medicamentos/getById`; // aqui falta el id
-  createOrUpdateUrl: string = `http://localhost:8084/api/proyecto/medicamentos/createOrUpdate`;
-  deleteByIdUrl: string = `http://localhost:8084/api/proyecto/medicamentos/deleteById`; // aqui falta el id
+  baseUrl: string = environment.baseUrl;
+  getAllUrl: string = `${this.baseUrl}/api/proyecto/medicamentos/getAll`;
+  getByIdUrl: string = `${this.baseUrl}/api/proyecto/medicamentos/getById`; // aqui falta el id
+  createOrUpdateUrl: string = `${this.baseUrl}/api/proyecto/medicamentos/createOrUpdate`;
+  deleteByIdUrl: string = `${this.baseUrl}/api/proyecto/medicamentos/deleteById`; // aqui falta el id
 
 
   getAll(): Observable<Response<Medicamento[]>> {

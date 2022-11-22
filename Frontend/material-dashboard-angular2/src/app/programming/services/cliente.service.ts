@@ -4,16 +4,18 @@ import { Observable } from 'rxjs';
 import { Cliente } from '../dto/Cliente.dto';
 import { IClienteService } from '../interfaces/IClienteService';
 import { Response } from '../models/Response.dto';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService implements IClienteService<Cliente>{
 
-  getAllUrl: string = "http://localhost:8084/api/proyecto/clientes/getAll";
-  getByIdUrl: string = `http://localhost:8084/api/proyecto/clientes/getById`; // aqui falta el id
-  createOrUpdateUrl: string = `http://localhost:8084/api/proyecto/clientes/createOrUpdate`;
-  deleteByIdUrl: string = `http://localhost:8084/api/proyecto/clientes/deleteById`; // aqui falta el id
+  baseUrl: string = environment.baseUrl;
+  getAllUrl: string = `${this.baseUrl}/api/proyecto/clientes/getAll`;
+  getByIdUrl: string = `${this.baseUrl}/api/proyecto/clientes/getById`; // aqui falta el id
+  createOrUpdateUrl: string = `${this.baseUrl}/api/proyecto/clientes/createOrUpdate`;
+  deleteByIdUrl: string = `${this.baseUrl}/api/proyecto/clientes/deleteById`; // aqui falta el id
 
   constructor(private httpClient: HttpClient) { }
 

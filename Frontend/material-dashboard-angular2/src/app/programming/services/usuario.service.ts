@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Usuario } from '../dto/Usuario.dto';
 import { IUsuarioService } from '../interfaces/IUsuarioService';
 import { Response } from '../models/Response.dto';
-
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,11 @@ export class UsuarioService implements IUsuarioService<Usuario>{
 
   constructor(private httpClient: HttpClient) { }
  
-
-  getAllUrl: string = "http://localhost:8084/api/proyecto/usuarios/getAll";
-  createOrUpdateUrl: string = `http://localhost:8084/api/proyecto/usuarios/createOrUpdate`;
-  getUserWithData: string = "http://localhost:8084/api/proyecto/usuarios/getUserAccess";
-  rescueAccount: string = `http://localhost:8084/api/proyecto/usuarios/getUserRescue`;
+  baseUrl: string = environment.baseUrl
+  getAllUrl: string = `${this.baseUrl}/api/proyecto/usuarios/getAll`;
+  createOrUpdateUrl: string = `${this.baseUrl}/api/proyecto/usuarios/createOrUpdate`;
+  getUserWithData: string = "${this.baseUrl}/api/proyecto/usuarios/getUserAccess";
+  rescueAccount: string = `${this.baseUrl}/api/proyecto/usuarios/getUserRescue`;
 
   getAll(): Observable<Response<Usuario[]>> {
     return this.httpClient.get<Response<Usuario[]>>(`${this.getAllUrl}`);
